@@ -23,10 +23,16 @@ class RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _saved = Set<WordPair>();
   final _biggerFont = const TextStyle(fontSize: 18.0);
+  void _pushSaved() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Startup Name Generator')),
+      appBar: AppBar(
+        title: Text('Startup Name Generator'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+        ],
+      ),
       body: _buildSuggestions(),
     );
   }
